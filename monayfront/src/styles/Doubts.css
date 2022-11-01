@@ -1,0 +1,93 @@
+.doubts-container{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2vw;
+}
+.doubts-container h2{
+    color: #1F83BD;
+    text-decoration: underline;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5vw;
+}
+.doubts-container h1{
+    margin: 0;
+    font-size: 2vw;
+}
+.doubts-container p{
+    font-size: 1.2vw;
+}
+.doubts-container a{
+    text-decoration: none;
+    color: #1F83BD;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5vw;
+    border: 0.15vw solid #1F83BD;
+    border-radius: 0.5vw;
+    background-color: white;
+    padding: 0 1vw;
+}
+.doubts-container svg{
+    font-size: 1.5vw;
+    color: #1F83BD;
+}
+
+.perguntas{
+    margin: 0 15vw;
+    text-align: start;    
+}
+#pergunta{
+    border-bottom: 0.16vw solid #1f83bd94;
+}
+#resposta1{
+    height: 0;
+    background-color: #c5eaff1c;
+    padding: 0 2vw;
+    margin-top: 0.5vw;
+    transition: all 0.5s linear;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5vw;
+    overflow: hidden;
+    
+}
+#resposta2{
+    height: 0;
+    background-color: #c5eaff1c;
+    padding: 0 2vw;
+    margin-top: 0.5vw;
+    transition: all 0.5s linear;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5vw;
+    overflow: hidden;
+}
+#resposta3{
+    height: 0;
+    background-color: #c5eaff1c;
+    padding: 0 2vw;
+    margin-top: 0.5vw;
+    transition: all 0.5s linear;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5vw;
+    overflow: hidden;
+}
+#resposta1 li{
+font-size: 1.2vw;
+}
+#resposta2 li{
+font-size: 1.2vw;
+}
+#resposta3 li{
+font-size: 1.2vw;
+}

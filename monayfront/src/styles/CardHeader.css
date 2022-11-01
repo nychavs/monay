@@ -1,0 +1,54 @@
+.cardHeader-container{
+    margin: 0;
+    padding: 0;
+    /* height: 24vh; */
+    width: 13vw;
+    background-color: #1F83BD;
+    border: 1vw solid #1F83BD;
+    border-radius: 1vw;
+    color: #EAF5FF;
+}
+.cardHeader-container h1{
+    margin-left: 0.4vw;
+    margin-top: 0;
+    font-size: 1.5vw;
+    font-family: 'Inter';
+    font-weight: 400;
+    line-height: 1.5vw;
+}
+.cardHeader-container p{
+    margin-left: 0.4vw;
+    font-size: 1vw;
+    color: #EAF5FF;
+}
+.cardHeader-container a{
+    margin-left: 0.4vw;
+    font-size: 1vw;
+    background-color: #51A9DB;
+    border: 0.3vw solid #51A9DB;
+    border-radius: 0.5vw;
+    width: 90%;
+    text-align: start;
+    padding: 0 0.5vw;
+    margin-top: 0.4vw;
+    text-decoration: none;
+    color: black;
+}
+.cardHeader-container input{
+    margin-left: 0.4vw;
+    background-color: #1F83BD;
+    border: none;
+    resize: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 1vw;
+    width: 90%;
+    font-size: 1vw;
+}
+.cardHeader-container svg{
+    font-size: 1vw;
+    text-align: center;
+}
+::placeholder{
+    color: black;
+}

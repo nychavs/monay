@@ -1,0 +1,70 @@
+.all-page{
+  background-color: #EAF5FF;
+  height: 86.6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+  width: 20vw;
+  color: white;
+  margin: 1vw 0;
+  padding: 1.5vw 2vw;
+  background-color: #1F83BD;
+  border: 0.5vw solid #1F83BD;
+  border-radius: 0.5vw;
+  box-shadow: 0.05vw 0.05vw 0.5vw 0.2vw slategray;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  font-family: 'Inter';
+  font-weight: 400;
+}
+.container svg{
+  font-size: 1vw;
+}
+.container p{
+  font-size: 1.2vw;
+  line-height: 0.1vw;
+  padding-bottom: 1vw;
+}
+.form-container{
+  padding-bottom: 0.5vw;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 1vw;
+}
+.container h1{
+  line-height: 0.1vw;
+}
+.container h2{
+  font-size: 1.5vw;
+}
+.form-container input{
+  border: none;
+  width: 90%;
+  border-bottom: 0.15vw solid #1F83BD;
+  font-size: 1vw;
+  /* margin-bottom: 0.5vw; */
+  margin-top: 0.8vw;
+  margin-bottom: 0.2vw;
+  text-align: center;
+  /* padding: 0.4vw 0; */
+}
+form input:focus{
+  outline: none;
+}
+.form-container #duvida{
+  padding-bottom: 2vw;
+  text-align: start;
+}
+button{
+  margin-top: 1.8vw;
+  background-color: #1F83BD;
+  border: 1px solid #EAF5FF;
+  border-radius: 0.5vw;
+  color: #EAF5FF;
+  font-size: 1vw;
+  width: 7vw;
+}

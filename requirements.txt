@@ -1,0 +1,14 @@
+Django
+whitenoise
+djoser
+django-cors-headers
+djangorestframework-simplejwt==4.8.0
+asgiref==3.5.2
+django-filter==22.1
+django-pictures==1.0rc1
+djangorestframework==3.13.1
+drf-nested-routers==0.93.4
+Pillow==9.2.0
+pytz==2022.2.1
+sqlparse==0.4.2
+tzdata==2022.2

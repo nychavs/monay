@@ -1,0 +1,167 @@
+:root{
+    --background: white;
+    --background2: #1F83BD;
+}
+  
+[data-theme='dark']{
+    --background: #1F83BD;
+    --background2: #51A9DB;
+}
+.home{
+    width: 100%;
+    background-size: cover;
+    align-items: center;
+}
+.headerContainer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: 40vh;
+}
+.banner_info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70vh;
+    flex-direction: row;
+}
+.cardHeaderPosition{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 15vw;
+}
+.headerContainer h1{
+    color: white;
+    background-color: #1F83BD;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3vw;
+    padding: 0 1vw;
+}
+.advantagesContainer{
+    background-color: var(--background);
+}
+.advantagesTitle{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.advantagesTitle h1{    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3vw;
+    color: #1F83BD;
+}
+.advantages-cards-Container{
+
+    display: flex;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.2vw;
+}
+.title{
+    color: white;
+}
+.card-container{
+    width: 18%;
+    background-color: #51A9DB;
+    border: 0px solid #51A9DB;
+    border-radius: 0.8vw;
+    margin: 0 4.5vw;
+}
+.card-image img{
+    width: 100%;
+    height: auto;
+}
+.card-container p{
+    padding: 0 1vw;
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5vw;
+    text-align: center;
+}
+.button{
+    display: flex;
+    justify-content: center;
+    margin: 2vw 0;
+}
+.button a{
+    font-size: 1.4vw;
+    color: white;
+    text-decoration: none;
+    background-color: #1F83BD;
+    border: 0px solid white;
+    border-radius: 1vw;
+    padding: 0.5vw 1.1vw;
+}
+.services-container{
+    padding: 1vw 0;
+    background-color: #1F83BD;
+    /* justify-items: center; */
+    /* display: flex;
+    flex-direction: column; */
+}
+.card-colums{
+    background-color: #1F83BD;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 3vw;
+    flex-direction: row-reverse;
+}
+.card-service-image{
+    background-color: #1F83BD;
+    text-align: end;
+    align-items: center;
+    display: grid;
+}
+.card-service-image img{
+    width: 22vw;
+}
+.services-container h1{
+    text-align: center;
+    font-size: 2.2vw;
+    color: white;
+}
+.card-service-container h2{
+    font-size: 1.3vw;
+    color: #1F83BD;
+}
+.card-service-container{
+    background-color: #EAF5FF;
+    color: black;
+    padding: 0 0.5vw;
+    margin-left: 1vw;
+    font-size: 1vw;   
+    border-radius:1vw;
+}
+.card-service-container p{
+    font-size: 1.2vw;
+}
+.card-all-cards{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1vw;
+}
+/* @media only screen and (max-width: 900px) {
+    .home{
+        height: 70vh;    
+    }
+} */
+
+@media only screen and (min-width: 600px) {
+    .home{
+    height: 70vh;    
+}
+}
+
+@media only screen and (max-width: 600px) {
+.home{
+    height: 20vh;    
+}
+}

@@ -1,0 +1,119 @@
+.navbar{
+  background-color: var(--background);
+  width: 100%;
+  height: 5%;
+  font-size: 0.9vw;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+}
+.navbar .theme-toggle p{
+  padding-right: 1vw;
+}
+.navbar .theme-toggle{
+  color: black;
+  display: flex;
+  align-items: center;
+}
+.navbar.fixed{
+  background-color: var(--background);
+  box-shadow: 0.01vw 0.01vw 1vw 0.01vw black;
+}
+.navbar.fixed a{
+  background-color: #51A9DB;
+}
+.navbar .leftSide{
+  display: flex;
+  align-items: center;
+  padding-left: 1vw;
+}
+.navbar .rightSide{
+  display: flex;
+  align-items: center;
+  padding-left: 1vw;
+}
+.navbar .leftSide img{
+  width: 3.5vw;
+}
+.navbar .rightSide button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.navbar .rightSide svg {
+  font-size: 1.9vw;
+}
+.navbar a{
+  color: #FFFFFF;
+  text-decoration: none;
+  background-color: #51A9DB;
+  border: 1px solid #51A9DB;
+  border-radius: 1vw;
+  padding: 0 0.4vw;
+  margin-right: 1vw;
+}
+.navbar #open .hiddenLinks {
+  display: inherit;
+  margin-left: 2vw;
+}
+.navbar #close .hiddenLinks {
+  display: none;
+}
+.navbar #open a {
+  width: 100%;
+  margin: 0 1vw;
+}   
+@media only screen and (max-width: 900px) {
+  .navbar .rightSide a {
+    width: 5.5vw;
+    text-align: center;
+  }
+  .navbar .leftSide {
+    padding-left: 1.3vw;
+  }
+  .navbar .rightSide button {
+    display: none;
+  }
+  .navbar .leftSide a {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar{
+    height: 4vh;
+  }
+  .navbar .rightSide svg{
+    font-size: 2.5vw;
+  }
+  .navbar .hiddenLinks a{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 2vw;
+  }
+  .navbar .rightSide a {
+    display: none;
+  }
+  .navbar .rightSide button {
+    display: inherit;
+  }
+  .navbar .leftSide img{
+    width: 7vw;
+    padding-left: 4vw;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .navbar .rightSide button {
+    display: none;
+  }
+  .hiddenLinks {
+    display: none;
+  }
+  .navbar .leftSide img{
+    width: 5vw;
+  }
+}

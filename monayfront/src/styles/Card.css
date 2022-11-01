@@ -1,0 +1,63 @@
+.everything{
+    background-color: #51A9DB;
+    display: flex;
+    justify-content: center;
+}
+.card-insc-container{
+    width: 19vw;
+    /* height: 50vh; */
+    padding: 1vw 2vw;
+    margin: 1.5vw 0;
+    border: 1px solid #1F83BD;
+    border-radius: 1vw;
+    text-align: center;
+    flex-direction: column;
+    background-color: #1F83BD;
+    color: white;
+}   
+.card-insc-textbox{
+    flex-direction: column;
+    display: flex;
+    background-color: white;
+    color: #51A9DB;
+    border: 0.3vw solid white;
+    border-radius: 1vw;
+    /* height: 40%; */
+}
+.card-insc-textbox input{
+    margin-top: 0.3vw;
+    padding: 0.7vw 0;
+    border: none;
+    width: 100%;
+    border-bottom: 2px solid #1F83BD;
+    font-size: 1vw;
+    text-align: center;
+}
+.card-insc-textbox input:focus{
+    outline: none;
+}
+.card-insc-container p{
+    font-family: Inter;
+    font-size: 1.3vw;
+    font-weight: 400;
+}
+.card-insc-container h1{
+    font-family: Inter;
+    font-size: 2.2vw;
+    font-weight: 400;
+    line-height: 1vw;
+}
+.card-insc-container button{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.1vw;
+    color: white;
+    border: 0.2vw solid white;
+    border-radius: 0.5vw;
+    background-color: #1F83BD;
+    margin: 0.7vw 0;
+}
+.card-insc-container svg{
+    font-size: 1vw;
+}
