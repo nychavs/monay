@@ -6,7 +6,9 @@ function Sobre() {
   return (
     <div>Sobre
       <h1>teste</h1>
-      <div id='posts-container'></div>
+      <div id='posts-container'>
+        <p>a</p>
+      </div>
     </div>
   )
 }
