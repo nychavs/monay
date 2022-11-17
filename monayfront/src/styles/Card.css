@@ -33,6 +33,9 @@
     font-size: 1vw;
     text-align: center;
 }
+.card-insc-textbox #data{
+    cursor: default;
+}
 .card-insc-textbox input:focus{
     outline: none;
 }

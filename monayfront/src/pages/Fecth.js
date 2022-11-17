@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 
 function Fecth() {
     const [data, setData] = useState([])
-
+//http://127.0.0.1:8000/monay/usuario/?format=json
+//https://jsonplaceholder.typicode.com/posts
     const apiGet = () =>{   
-        fetch("https://jsonplaceholder.typicode.com/posts")
+        fetch("http://127.0.0.1:8000/monay/usuario/?format=json")
         .then((response) => 
         response.json())
         .then((json) => {
@@ -23,9 +24,8 @@ function Fecth() {
         <div>
             <ul>
                 {data.map((item) => (
-                    <li key={item.id}>{item.title}</li>
+                    <li key={item.cpfUsuario}>{item.statusUsuario}</li>
                 ))}
-
             </ul>
         </div>
     </div>

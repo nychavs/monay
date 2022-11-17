@@ -35,6 +35,11 @@ function Navbar(){
     }
     window.addEventListener("scroll", setFixed)
 
+    function goHome(){
+        window.location.href = "http://localhost:3000/#home";
+    }
+    
+
     // console.log(window.location.pathname)
     // const [wind, setWind] = useState(false)
     // const windverify = () =>{
@@ -45,7 +50,7 @@ function Navbar(){
     return(
         <div className={ fix ? 'navbar fixed' : 'navbar'}  data-theme={theme}>
             <div className='leftSide' id={openLinks ? "open" : "close"}>
-                <img src={theme === 'dark' ? Logo : LogoWhite} alt='logo' />
+                <img src={theme === 'dark' ? Logo : LogoWhite} alt='logo' onClick={goHome}/>
                 <div className="hiddenLinks">
                     <Link to="/#home">Página Inicial</Link>
                     <Link to='/#services'>Serviços</Link>

@@ -35,6 +35,7 @@
 }
 .navbar .leftSide img{
   width: 3.5vw;
+  cursor: pointer;
 }
 .navbar .rightSide button {
   background-color: transparent;
