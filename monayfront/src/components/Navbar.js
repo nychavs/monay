@@ -65,7 +65,7 @@ function Navbar(){
                 <Link to="/sobre">Sobre nós</Link>
                 <Link to="/#doubts">Dúvidas</Link>
                 <Link to="/#cadastro">Quero Meu Cartão</Link>
-                <Link to="/homeuser">Login</Link>
+                <Link to="/login">Login</Link>
                 <button onClick={toggleNavbar}>
                     <ReorderIcon />
                 </button>
