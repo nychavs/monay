@@ -11,7 +11,7 @@
     background-color: white;
     box-shadow: 0.1vw 0.01vw 1vw 0.01vw black;
 }
-.footer-content a{
+.footer-content p{
     background-color: #51A9DB;
     text-decoration: none;
     color: white;
@@ -21,10 +21,13 @@
     padding: 0 0.4vw;
     margin: 0 1vw;
 }
-.footer-content.fixed a{
+.footer-content.fixed p{
     background-color: #1F83BD;
 }
-.footer-content .rigthside a{
+.footer-content .rigthside p{
     display: flex;
     justify-content: flex-end;
+}
+#opc1{
+    height: 0vh;
 }

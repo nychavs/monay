@@ -9,7 +9,7 @@ function Doubts() {
 
   function abreFecha(resposta){
     if (controlador === 0){
-        document.getElementById(resposta).style.height ="27vh"
+        document.getElementById(resposta).style.height ="15vh"
       controlador = 1
       } 
     else{
