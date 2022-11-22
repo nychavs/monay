@@ -1,19 +1,19 @@
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 // import { Container, Content } from '../styles/Sidebar.js'
 import '../styles/Sidebar.css'
+import {RiAccountCircleLine} from 'react-icons/ri'
+import {MdPayment} from 'react-icons/md'
+import {IoIosContacts} from 'react-icons/io'
+import {BiTransferAlt} from 'react-icons/bi'
+import {GiReceiveMoney} from 'react-icons/gi'
+import {AiOutlineBarcode } from 'react-icons/ai'
+import SidebarItem from './SidebarItem'
 import { 
   FaTimes, 
   FaHome, 
-  FaEnvelope, 
-  FaRegSun, 
-  FaUserAlt, 
-  FaIdCardAlt, 
   FaRegFileAlt,
-  FaRegCalendarAlt,
-  FaChartBar
 } from 'react-icons/fa'
-
-import SidebarItem from './SidebarItem'
 
 const Sidebar = ({ active }) => {
 
@@ -21,23 +21,43 @@ const Sidebar = ({ active }) => {
     active(false)
   }
 
+//   const navigate = useNavigate()
+//   const navigateTo = (pagina) => {
+//     navigate(pagina)
+//   }
+//   const navigation = () =>{
+//     navigate('http://localhost:3000/#home')
+//   }
+
   return (
     <div className='sidebar-container' sidebar={active}>
-    {/* <Container sidebar={active}> */}
       <FaTimes onClick={closeSidebar} />  
       <div className='sidebar-content'>
-      {/* <Content> */}
-        <SidebarItem Icon={FaHome} Text="Home" />
-        <SidebarItem Icon={FaIdCardAlt} Text="Meu Perfil" />
-        <SidebarItem Icon={FaChartBar} Text="Transações" />
-        <SidebarItem Icon={FaUserAlt} Text="Pagamentos" />
-        <SidebarItem Icon={FaEnvelope} Text="Extrato" />
-        <SidebarItem Icon={FaRegCalendarAlt} Text="Meus Contatos" />
-        <SidebarItem Icon={FaRegFileAlt} Text="Empréstimos" />
-        <SidebarItem Icon={FaRegSun} Text="Settings" />
-      {/* </Content> */}
+        <Link to={'/'}>
+            <SidebarItem Icon={FaHome} Text="Home" />
+        </Link>
+        <Link to={''}>
+            <SidebarItem Icon={RiAccountCircleLine} Text="Meu Perfil" />
+        </Link>
+        <Link to={''}>
+            <SidebarItem Icon={MdPayment} Text="Meus Cartões" />
+        </Link>
+        <Link to={''}>
+            <SidebarItem Icon={BiTransferAlt} Text="Transações" />
+        </Link>
+        <Link to={''}>
+            <SidebarItem Icon={AiOutlineBarcode} Text="Pagamentos"/>
+        </Link>
+        <Link to={''}>
+            <SidebarItem Icon={GiReceiveMoney} Text="Empréstimos" />
+        </Link>
+        <Link to={''}>
+            <SidebarItem Icon={FaRegFileAlt} Text="Extrato" />
+        </Link>
+        <Link to={''}>
+            <SidebarItem Icon={IoIosContacts} Text="Meus Contatos" />
+        </Link>
       </div>
-    {/* </Container> */}
     </div>
   )
 }

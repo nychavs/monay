@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import '../styles/Login.css'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
@@ -14,7 +15,9 @@ function Login() {
           <input type='text' id='senha' name='senha' placeholder='Insira sua senha' />
         </form>
         </div>
+        <Link to={'/homeUser'}>
         <button> Prosseguir <ArrowForwardIcon/></button>
+        </Link>
       </div>
     </div>
   )

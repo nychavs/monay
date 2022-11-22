@@ -6,6 +6,9 @@
     width: 15vw;
     animation: showSidebar 2s;
 }
+.sidebar-container a{
+    text-decoration: none;
+}
 .sidebar-container svg{
     color: white;
     width: 1vw;
