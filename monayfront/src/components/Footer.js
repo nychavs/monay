@@ -35,7 +35,7 @@ function Footer() {
       <p id='pergunta' onClick={()=>abreFecha('opc2')}>Informações</p>
       <p id='pergunta' onClick={()=>abreFecha('opc3')}>Reclame aqui</p>
       <p id='pergunta' onClick={()=>abreFecha('opc3')}>Alguma coisa</p>
-      <div id='opc1'>
+      {/* <div id='opc1'>
         <p id='a'>Central de Relacionamento
         0800 275 6398</p>
         <p id='a'>SAC
@@ -44,7 +44,7 @@ function Footer() {
         Ouvidoria
         0800 688 6398
         </p>
-      </div>
+      </div> */}
     </div>
   )
 }

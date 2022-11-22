@@ -1,0 +1,14 @@
+.sidebarItem-Container{
+    display: flex;
+    align-items: center;
+    background-color: #1F83BD;
+    font-size: 1vw;
+    color: white;
+    padding: 1vw;
+    cursor: pointer;
+    border-radius: 0.5vw;
+    margin: 0;
+}
+.sidebarItem-Container svg{
+    margin: 0 1vw;
+}

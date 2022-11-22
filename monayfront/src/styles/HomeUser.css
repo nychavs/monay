@@ -1,0 +1,11 @@
+.homeUser-svg{
+   background-color: #1F83BD;
+   width: 15vw;
+}
+.homeUser-svg svg{
+   height: 1vw;
+   width: 1vw;
+   margin-top: 0.5vw;
+   margin-left: 1vw;
+   background-color: #1F83BD;
+}
