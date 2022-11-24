@@ -15,7 +15,14 @@ function HomeUser(){
             {sidebar && <Sidebar active={setSidebar}/>}
         </div>
         <div className='homeuser-content'>
-            <h2>a</h2>
+            <div id='home'>Home</div>
+            <div id='perfil'>Meu Perfil</div>
+            <div id='cartoes'>Meus Cartões</div>
+            <div id='transacoes'>Transações</div>
+            <div id='pagamentos'>Pagamentos</div>
+            <div id='emprestimos'>Empréstimos</div>
+            <div id='extrato'>Extrato</div>
+            <div id='contatos'>Meus Contatos</div>
         </div>
         </div>
         </>
