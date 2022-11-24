@@ -32,10 +32,12 @@ function Card() {
       },
     })
     .then((response) => response.json())
-    .then((json) => {console.log(json)
+    .then((json) => {
+      console.log(json)
+      apiPost2(json.id)
     })
 }
-const apiPost2 = async () =>{   
+const apiPost2 = async (idUsuario) =>{   
   await fetch("http://127.0.0.1:8000/monay/cliente/?format=json",{
     // await fetch("http://jsonplaceholder.typicode.com/posts",{
     method: "POST",
@@ -43,6 +45,7 @@ const apiPost2 = async () =>{
       nomeCliente: input.nomeCliente,
       email:input.senhaUsuario,
       dataNascimento: input.dataNascimento,
+      usuario: idUsuario,
       // title:input.title,
       // body: input.body,
       // userId: 5
@@ -65,7 +68,7 @@ const apiPost2 = async () =>{
     const handleSubmit=(event)=>{
       event.preventDefault()
       apiPost()
-      apiPost2()
+      
       console.log(input)
     }
 

@@ -9,9 +9,14 @@ function HomeUser(){
  
     return (
         <>
+        <div className='homeuser-container'>
         <div className="homeUser-svg">
             <FaBars onClick={showSidebar} />
             {sidebar && <Sidebar active={setSidebar}/>}
+        </div>
+        <div className='homeuser-content'>
+            <h2>a</h2>
+        </div>
         </div>
         </>
     )

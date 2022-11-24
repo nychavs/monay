@@ -7,13 +7,13 @@ from pictures.contrib.rest_framework import PictureField
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
-        fields = ['cpfUsuario', 'senhaUsuario', 'statusUsuario']
+        fields = ['id', 'cpfUsuario', 'senhaUsuario', 'statusUsuario']
 
 class ClienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cliente
-        fields = ['nomeCliente', 'dataNascimento', 'usuario', 'fotoCliente', 'email']
-    fotoCliente = PictureField()
+        fields = ['nomeCliente', 'dataNascimento', 'usuario', 'email']
+    # fotoCliente = PictureField()
 
 # esse só permite que o admin cadastre a foto
 # class FotoSerializer(serializers.ModelSerializer):

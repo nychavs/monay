@@ -1,6 +1,15 @@
+.homeuser-container{
+   display: flex;
+   flex-direction: row;
+}
+.homeuser-content{
+   width: max-content;
+   height: max-content;
+   margin-left: 5vw;
+}
 .homeUser-svg{
    background-color: #1F83BD;
-   width: 15vw;
+   /* width: 15vw; */
 }
 .homeUser-svg svg{
    height: 1vw;
@@ -8,4 +17,14 @@
    margin-top: 0.5vw;
    margin-left: 1vw;
    background-color: #1F83BD;
+}
+@keyframes showSidebar{
+   from {
+       opacity: 0;
+       width: 0;
+     }
+     to {
+       opacity: 1;
+       width: 15vw;
+     }
 }

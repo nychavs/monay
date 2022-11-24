@@ -52,7 +52,7 @@ class Cliente(models.Model):
     email = models.CharField(max_length=100)
     genero = models.CharField(max_length=1, choices=GENERO, default=NAO_INFORMAR)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    fotoCliente = PictureField(upload_to='loja/imagens')
+    # fotoCliente = PictureField(upload_to='loja/imagens')
 
     def __str__(self):
         return str(self.nomeCliente)
