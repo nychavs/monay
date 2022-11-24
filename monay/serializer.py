@@ -12,7 +12,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
 class ClienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cliente
-        fields = ['nomeCliente', 'dataNascimento', 'usuario', 'fotoCliente']
+        fields = ['nomeCliente', 'dataNascimento', 'usuario', 'fotoCliente', 'email']
     fotoCliente = PictureField()
 
 # esse só permite que o admin cadastre a foto

@@ -49,6 +49,7 @@ class Cliente(models.Model):
 
     nomeCliente = models.CharField(max_length=50)
     dataNascimento = models.DateField()
+    email = models.CharField(max_length=100)
     genero = models.CharField(max_length=1, choices=GENERO, default=NAO_INFORMAR)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     fotoCliente = PictureField(upload_to='loja/imagens')
