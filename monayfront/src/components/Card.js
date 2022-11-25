@@ -3,7 +3,6 @@ import '../styles/Card.css'
 import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-// import CardHeader from './CardHeader';
 
 function Card() {
 
@@ -40,16 +39,12 @@ function Card() {
 }
 const apiPost2 = async (idUsuario) =>{   
   await fetch("http://127.0.0.1:8000/monay/cliente/?format=json",{
-    // await fetch("http://jsonplaceholder.typicode.com/posts",{
     method: "POST",
     body: JSON.stringify({
       nomeCliente: input.nomeCliente,
       email:input.senhaUsuario,
       dataNascimento: input.dataNascimento,
       usuario: idUsuario,
-      // title:input.title,
-      // body: input.body,
-      // userId: 5
     }),
     headers: {
       "Content-type":"application/json; charset=UTF-8",
@@ -90,14 +85,14 @@ const apiPost2 = async (idUsuario) =>{
       if (nomeCliente.length < 4){
           toast.error("Por favor, insira seu nome completo.", toastOptions);
           return false;
-      } else if (email != emailConf){
+      } else if (email !== emailConf){
         console.log(email)
         console.log(emailConf)
         toast.error("Os emails não conferem!", toastOptions)
         return false;
       }else if (senhaUsuario < 6){
         toast.error("Sua senha deve possuir pelo menos 6 caracteres", toastOptions)
-      }else if (senhaUsuario != confSenha) {
+      }else if (senhaUsuario !== confSenha) {
         toast.error("As senhas não conferem!", toastOptions)
         return false;
       } else if (cpfUsuario < 11){

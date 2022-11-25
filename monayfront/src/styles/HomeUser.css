@@ -1,11 +1,7 @@
 .homeuser-container{
    display: flex;
    flex-direction: row;
-}
-.homeuser-content{
-   width: max-content;
-   height: max-content;
-   margin-left: 5vw;
+   justify-items: center;
 }
 .homeUser-svg{
    background-color: #1F83BD;
@@ -16,15 +12,12 @@
    width: 1vw;
    margin-top: 0.5vw;
    margin-left: 1vw;
+   margin-right: 1vw;
    background-color: #1F83BD;
 }
-@keyframes showSidebar{
-   from {
-       opacity: 0;
-       width: 0;
-     }
-     to {
-       opacity: 1;
-       width: 15vw;
-     }
-}
+.homeuser-content{
+   width: 100vw;
+   height: 100vh;
+   margin-left: 2vw;
+   font-size: 1vw;
+}  

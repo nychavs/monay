@@ -3,8 +3,8 @@
     height: 100%;
     top: 0px;
     left: 0px;
-    width: 15vw;
-    animation: showSidebar 2s;
+    width: 12vw;
+    animation: showSidebar .2s;
 }
 .sidebar-container a{
     text-decoration: none;
@@ -28,6 +28,6 @@
       }
       to {
         opacity: 1;
-        width: 15vw;
+        width: 12vw;
       }
 }
