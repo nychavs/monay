@@ -35,9 +35,4 @@ function Fecth() {
 
 export default Fecth
 
-// localhost/auth/jwt/create
-//quando expirar localhost/auth/jwt/refresh
-// "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY2OTM3ODkzOCwianRpIjoiMjI3YzMwZDRiYmE0NDE0OTkwODFiZDNkNDkzZTc4YzEiLCJ1c2VyX2lkIjoxfQ.1iMf0E-2Wh2i6HVcl1QSrPkhOeHD5vVguzggrStbsoE",
-//"access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY5MjkxNjk1LCJqdGkiOiJkNGMwMGZjNmZjZDM0YjVjOWNiMGU5Zjg3MDM5NGQ4MiIsInVzZXJfaWQiOjF9.fosavFGsTeZxZJavEI5kHa-d_NstM0Wmtuyz4C0B1uw"
-//}
-//na extensão usar o token de access
+//"refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY2OTQ1OTU2MSwianRpIjoiYzU3ZTQ2MWVmNWUxNDc2ZjhlZDY4NzM5ZDAyZGUyNjYiLCJ1c2VyX2lkIjoxfQ.vi1vtgrFzrIv7oxbEFpys7chJnNWTLjEe3dgCijZ6WE",

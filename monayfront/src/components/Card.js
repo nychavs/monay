@@ -1,26 +1,27 @@
 import React, {useState} from 'react'
 import '../styles/Card.css'
+import {ToastContainer, toast} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 // import CardHeader from './CardHeader';
 
 function Card() {
+
   const date = new Date()
   let day = date.getDay()
   let month = date.getMonth() + 1
   let year = date.getFullYear()
-  console.log(day)
   if (day <= 9){
     day = '0' + day
   }
   let year18 = year - 18
   let currentDate = `${year18}-${month}-${day}`
-  console.log(currentDate)
+
 
   const [input, setInput] = useState({})
 
   const apiPost = async () =>{   
     await fetch("http://127.0.0.1:8000/monay/usuario/?format=json",{
-      // await fetch("http://jsonplaceholder.typicode.com/posts",{
       method: "POST",
       body: JSON.stringify({
         cpfUsuario: input.cpfUsuario,
@@ -56,6 +57,7 @@ const apiPost2 = async (idUsuario) =>{
   })
   .then((response) => response.json())
   .then((json) => {console.log(json)
+    console.log('tudo postado')
   })
 }
     const handleChange = (event) =>{
@@ -67,12 +69,45 @@ const apiPost2 = async (idUsuario) =>{
     }
     const handleSubmit=(event)=>{
       event.preventDefault()
-      apiPost()
-      
+      console.log('handle submit')
+      if (handleValidation()){
+        console.log('entrou no if')
+        apiPost()
+      }
       console.log(input)
     }
+    
+    const toastOptions = {
+      position: "bottom-right",
+      autoClose:8000,
+          pauseOnHover:true,
+          draggable:true,
+          theme:"dark"
+        }
 
-  return (
+    const handleValidation = () =>{
+      const {nomeCliente, email, emailConf, senhaUsuario, confSenha, cpfUsuario} = input;
+      if (nomeCliente.length < 4){
+          toast.error("Por favor, insira seu nome completo.", toastOptions);
+          return false;
+      } else if (email != emailConf){
+        console.log(email)
+        console.log(emailConf)
+        toast.error("Os emails não conferem!", toastOptions)
+        return false;
+      }else if (senhaUsuario < 6){
+        toast.error("Sua senha deve possuir pelo menos 6 caracteres", toastOptions)
+      }else if (senhaUsuario != confSenha) {
+        toast.error("As senhas não conferem!", toastOptions)
+        return false;
+      } else if (cpfUsuario < 11){
+        toast.error("Por favor, verifique seu CPF", toastOptions)
+        return false;
+      }
+      return true;
+    }
+
+return (
     <>
     <section className='cadastro' id='cadastro'>
     <div className='everything'>
@@ -97,7 +132,7 @@ const apiPost2 = async (idUsuario) =>{
             type='date' 
             id='data' 
             name='dataNascimento' 
-            min={currentDate}
+            max={currentDate}
             onChange={handleChange}/><br/>
             <input 
             type='email' 
@@ -109,7 +144,8 @@ const apiPost2 = async (idUsuario) =>{
             type='email' 
             id='emailConf' 
             name='emailConf' 
-            placeholder='Confirmar Email'/><br/>
+            placeholder='Confirmar Email'
+            onChange={handleChange}/><br/>
             {/* <input 
             type='text' 
             id='genero' 
@@ -121,6 +157,12 @@ const apiPost2 = async (idUsuario) =>{
             name='senhaUsuario' 
             placeholder='senha'
             onChange={handleChange}/><br/>
+            <input
+            type='text' 
+            id='confSenha' 
+            name='confSenha' 
+            placeholder='Confirmar Senha'
+            onChange={handleChange}/><br/>
             <button 
             type="submit" 
             value="Submit" 
@@ -131,6 +173,7 @@ const apiPost2 = async (idUsuario) =>{
     </div>
     </div>
     </section>  
+    <ToastContainer />
     </>
   )
 }
