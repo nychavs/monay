@@ -9,7 +9,15 @@ function Doubts() {
 
   function abreFecha(resposta){
     if (controlador === 0){
-        document.getElementById(resposta).style.height ="15vh"
+      if (resposta==='resposta3'){
+        document.getElementById(resposta).style.height ="25vh"
+      }
+      else if(resposta==='resposta2'){
+        document.getElementById(resposta).style.height ="25vh"
+      }
+      else if (resposta==='resposta1'){
+        document.getElementById(resposta).style.height ="30vh"
+      }
       controlador = 1
       } 
     else{
@@ -67,7 +75,7 @@ function Doubts() {
                cancelamento ou um novo pedido, pode nos mandar via email! </p>
           </div>
     
-          <div id='pergunta3' onClick={()=>abreFecha("resposta3")}>
+          <div id='pergunta' onClick={()=>abreFecha("resposta3")}>
             <p>Meu cartão ainda não chegou, o que eu faço?</p>
           </div>
           <div id='resposta3'>
@@ -79,7 +87,8 @@ function Doubts() {
             Ao clicar sobre o código de rastreio você consegue 
             verificar o andamento da entrega com um detalhamento maior.<br></br><br></br>
             Caso já tenha passado do prazo e o seu cartão não chegou, 
-            lembre-se de checar o status do rastreio, verifique o seu endereço de entrega e se necessário, entre em contato com o chat.
+            lembre-se de checar o status do rastreio, verifique o seu endereço de entrega e se 
+            necessário, entre em contato pelo chat.
             </p>
           </div>
         </div>

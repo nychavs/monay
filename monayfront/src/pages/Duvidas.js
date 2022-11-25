@@ -11,7 +11,7 @@ function Duvidas() {
             <form>
               <input type='text' name='email' id='email' placeholder='Seu endereço de email'/>
               <input type='text' name='nome' id='nome' placeholder='Como prefere ser chamado'/>
-              <input type='text' name='duvida' id='duvida' placeholder='Sua duvida'/>
+              <input type='text' name='duvida' id='duvida' placeholder='Sua dúvida'/>
             </form>
           </div>
         <button>
