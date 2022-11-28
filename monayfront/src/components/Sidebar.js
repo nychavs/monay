@@ -28,7 +28,7 @@ const Sidebar = ({ active }) => {
       <div className='sidebar-content'>
             <SidebarItem Icon={FaHome} Text="Home"/>
             <SidebarItem Icon={RiAccountCircleLine} Text="Meu Perfil" />
-        <NavLink to='/#teste'>
+        <NavLink to='/homeuser'>
             <SidebarItem Icon={MdPayment} Text="Meus Cartões" />
         </NavLink>
             <SidebarItem Icon={BiTransferAlt} Text="Transações" />
