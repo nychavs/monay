@@ -1,36 +1,23 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import '../styles/Login.css'
+import {ToastContainer, toast} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 function Login() {
   const [input, setInput] = useState({})
-
-  const apiPost = async () =>{   
-    await fetch("http://127.0.0.1:8000/monay/usuario/?format=json",{
-      // await fetch("http://jsonplaceholder.typicode.com/posts",{
-      method: "POST",
-      body: JSON.stringify({
-        cpfUsuario: input.cpfUsuario,
-        senhaUsuario:input.senhaUsuario,
-        statusUsuario: 1,
-        // title:input.title,
-        // body: input.body,
-        // userId: 5
-      }),
-      headers: {
-        "Content-type":"application/json; charset=UTF-8",
-      },
+  const [data, setData] = useState([])
+  
+  const apiGet = () =>{   
+    fetch("http://127.0.0.1:8000/monay/usuario/?format=json")
+    .then((response) => 
+    response.json())
+    .then((json) => {
+      console.log(json)
+      setData(json)
     })
-    .then((response) => response.json())
-    .then((json) => {console.log(json)
-    })
-}
-
-  // const [cpf, setCpf] = useState('')
-  // const [password, setPassword] = useState('')
-  // const navigate = useNavigate();
-
+  }
   const handleChange = (event) =>{
     event.persist()
     setInput((input)=>({
@@ -40,9 +27,44 @@ function Login() {
   }
   const handleSubmit=(event)=>{
     event.preventDefault()
-    apiPost()
+    if (validate()){
+      window.alert("Login efetuado com sucesso!")
+    }
     console.log(input)
   }
+
+  useEffect(()=>{
+    apiGet();
+}, [])
+
+const toastOptions = {
+  position: "bottom-right",
+  autoClose:8000,
+      pauseOnHover:true,
+      draggable:true,
+      theme:"dark"
+    }
+
+
+  const validate = () =>{
+    const {cpfUsuario, senhaUsuario} = input
+    console.log("entrou no validate")
+    // data.forEach(item => {
+    for (let i=0; i < data.length; i++){  
+    console.log(data[i]) 
+    let item = data[i] 
+      if (item.cpfUsuario !== cpfUsuario){
+        if (item = data.length) {
+          toast.error("CPF não encontrado", toastOptions)
+        }
+        return false;
+      } else if (item.senhaUsuario !== senhaUsuario){
+        toast.error("Senha incorreta", toastOptions)
+        return false;
+      }
+      return true
+    };
+    }
 
   return (
     <div className='all-page'>
@@ -72,6 +94,7 @@ function Login() {
         {/* <Link to={'/homeUser'}> */}
         {/* </Link> */}
       </div>
+      <ToastContainer />
     </div>
   )
 }
