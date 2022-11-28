@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import '../styles/Card.css'
 import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -35,6 +35,9 @@ function Card() {
     .then((json) => {
       console.log(json)
       apiPost2(json.id)
+      window.alert(
+        "Cadastro efetuado com sucesso! Acesse a página de login para continuar")
+
     })
 }
 const apiPost2 = async (idUsuario) =>{   
@@ -78,25 +81,60 @@ const apiPost2 = async (idUsuario) =>{
           pauseOnHover:true,
           draggable:true,
           theme:"dark"
-        }
+    }
+    const [data, setData] = useState([])
+    
+    const apiGet = () =>{   
+      fetch("http://127.0.0.1:8000/monay/usuario/?format=json")
+      .then((response) => 
+      response.json())
+      .then((json) => {
+      console.log(json)
+      setData(json)
+      })
+    }
+    
+    useEffect(()=>{
+      apiGet();
+    }, [])
 
     const handleValidation = () =>{
       const {nomeCliente, email, emailConf, senhaUsuario, confSenha, cpfUsuario} = input;
       if (nomeCliente.length < 4){
           toast.error("Por favor, insira seu nome completo.", toastOptions);
           return false;
-      } else if (email !== emailConf){
+      }else if (cpfUsuario < 11){
+          toast.error("Por favor, verifique seu CPF", toastOptions)
+          return false;
+      }else if (cpfUsuario.length == 11){
+        for (let i=0; i < data.length; i++){
+          let item = data[i]
+          if (cpfUsuario === item.cpfUsuario){
+            toast.error("CPF Ja cadastrado em nosso sistema! Clique em 'Login' no canto superior", toastOptions)
+            i = data.length
+          }
+        }
+        return false;
+      }else if (email !== emailConf){
         console.log(email)
         console.log(emailConf)
         toast.error("Os emails não conferem!", toastOptions)
         return false;
-      }else if (senhaUsuario < 6){
+      }
+      else if (email === emailConf){
+        for (let i=0; i <data.length; i++){
+          let item = data[i]
+          if (email === item.email){
+            toast.error("Email já cadastrado em nosso sistema! Clique em 'Login' no canto superior", toastOptions)
+            i = data.length
+          }
+        }
+        return false;
+      }
+      else if (senhaUsuario < 6){
         toast.error("Sua senha deve possuir pelo menos 6 caracteres", toastOptions)
       }else if (senhaUsuario !== confSenha) {
         toast.error("As senhas não conferem!", toastOptions)
-        return false;
-      } else if (cpfUsuario < 11){
-        toast.error("Por favor, verifique seu CPF", toastOptions)
         return false;
       }
       return true;
@@ -150,7 +188,7 @@ return (
             type='password' 
             id='senhaUsuario' 
             name='senhaUsuario' 
-            placeholder='senha'
+            placeholder='Senha (8 caracteres)'
             onChange={handleChange}/><br/>
             <input
             type='password' 
@@ -162,7 +200,8 @@ return (
             type="submit" 
             value="Submit" 
             onClick={handleChange}> 
-            Prosseguir <ArrowForwardIcon/></button>
+            Prosseguir <ArrowForwardIcon/>
+            </button>
           </form>
         </div>
     </div>

@@ -1,18 +1,20 @@
 import React, {useState, useEffect} from 'react'
-import {Link, useNavigate} from 'react-router-dom'
 import '../styles/Login.css'
 import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-function Login() {
+const Login = () => {
   const [input, setInput] = useState({})
   const [data, setData] = useState([])
-  
+  let navigate = useNavigate()
+
   const apiGet = () =>{   
     fetch("http://127.0.0.1:8000/monay/usuario/?format=json")
     .then((response) => 
-    response.json())
+    response.json())  
     .then((json) => {
       console.log(json)
       setData(json)
@@ -29,6 +31,7 @@ function Login() {
     event.preventDefault()
     if (validate()){
       window.alert("Login efetuado com sucesso!")
+      navigate('/homeuser')
     }
     console.log(input)
   }
@@ -54,17 +57,16 @@ const toastOptions = {
     let item = data[i] 
       if (item.cpfUsuario !== cpfUsuario){
         if (item = data.length) {
-          toast.error("CPF não encontrado", toastOptions)
+          toast.error("CPF não encontrado!", toastOptions)
         }
         return false;
       } else if (item.senhaUsuario !== senhaUsuario){
-        toast.error("Senha incorreta", toastOptions)
+        toast.error("Senha incorreta!", toastOptions)
         return false;
       }
       return true
     };
     }
-
   return (
     <div className='all-page'>
       <div className='container'>
@@ -93,7 +95,7 @@ const toastOptions = {
         <div className='cadastrar'>
         <p>Não possui cadastro ainda?</p>
         <p>Não tem problema!</p>
-        <Link to={''}>Clique aqui para se cadastrar!</Link>
+        <NavLink to='/#cadastro'>Clique aqui para se cadastrar!</NavLink>
         </div>
         {/* <Link to={'/homeUser'}> */}
         {/* </Link> */}

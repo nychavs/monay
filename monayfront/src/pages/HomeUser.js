@@ -14,9 +14,6 @@ function HomeUser(props){
             <FaBars onClick={showSidebar} />
             {sidebar && <Sidebar active={setSidebar}/>}
         </div>
-        <div className='homeuser-content'>
-            
-        </div>
         </div>
         </>
     )
