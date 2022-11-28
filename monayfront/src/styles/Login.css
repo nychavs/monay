@@ -24,7 +24,7 @@
 .container svg{
   font-size: 1vw;
 }
-.container p{
+.container p #normal-content{
   font-size: 1.2vw;
   line-height: 0.1vw;
   padding-bottom: 1vw;
@@ -61,11 +61,24 @@ form input:focus{
   text-align: start;
 }
 button{
-  margin-top: 1.8vw;
+  margin-top: 0.8vw;
   background-color: #1F83BD;
   border: 1px solid #EAF5FF;
   border-radius: 0.5vw;
   color: #EAF5FF;
   font-size: 1vw;
   width: 7vw;
+}
+.cadastrar{
+  margin-top: 1vw;
+}
+.cadastrar p{
+  color: white;
+  font-size: 1vw;
+  padding: 0.1vw;
+  margin: 0.1vw;
+}
+.cadastrar a{
+  text-decoration:underline;
+  color: white;
 }

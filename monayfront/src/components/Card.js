@@ -147,13 +147,13 @@ return (
             name='genero' 
             placeholder='Genero'/><br/> */}
             <input
-            type='text' 
+            type='password' 
             id='senhaUsuario' 
             name='senhaUsuario' 
             placeholder='senha'
             onChange={handleChange}/><br/>
             <input
-            type='text' 
+            type='password' 
             id='confSenha' 
             name='confSenha' 
             placeholder='Confirmar Senha'

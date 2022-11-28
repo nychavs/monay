@@ -48,7 +48,6 @@ const toastOptions = {
 
   const validate = () =>{
     const {cpfUsuario, senhaUsuario} = input
-    console.log("entrou no validate")
     // data.forEach(item => {
     for (let i=0; i < data.length; i++){  
     console.log(data[i]) 
@@ -70,7 +69,7 @@ const toastOptions = {
     <div className='all-page'>
       <div className='container'>
         <h1>Bem Vindo de Volta!</h1>
-        <p>Insira seus dados para acessar a conta: </p>
+        <p id='normal-content'>Insira seus dados para acessar a conta: </p>
         <div className='form-container'>
         <form onSubmit={handleSubmit}>
           <input 
@@ -81,7 +80,7 @@ const toastOptions = {
           placeholder='Insira seu CPF'
           onChange={handleChange}/>
           <input 
-          type='text' 
+          type='password' 
           id='senhaUsuario' 
           // name='body' 
           name='senhaUsuario' 
@@ -90,6 +89,11 @@ const toastOptions = {
         <button type="submit" value="Submit" onClick={handleChange}> Prosseguir <ArrowForwardIcon/></button>
           {/* <input type="submit" value="Submit" onChange={handleChange} /> */}
         </form>
+        </div>
+        <div className='cadastrar'>
+        <p>Não possui cadastro ainda?</p>
+        <p>Não tem problema!</p>
+        <Link to={''}>Clique aqui para se cadastrar!</Link>
         </div>
         {/* <Link to={'/homeUser'}> */}
         {/* </Link> */}
