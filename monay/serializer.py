@@ -43,12 +43,12 @@ class PgtoEmprestimoSerializer(serializers.ModelSerializer):
 class EmprestimoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Emprestimo
-        fields = ['statusEmprest', 'dataEmprest', 'valorEmprest', 'qtdParcelas', 'jurosEmprest']
+        fields = ['statusEmprest', 'dataEmprest', 'valorEmprest', 'qtdParcelas', 'jurosEmprest', 'contaCliente']
 
 class EnderecoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Endereco
-        fields = '__all__'
+        fields = ['numero', 'rua', 'bairro', 'cidade', 'estado', 'cep', 'cliente']
 
 class ContatoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -63,28 +63,29 @@ class ContaSerializer(serializers.ModelSerializer):
 class FavoritoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Favorito
-        fields = '__all__'
+        fields = ['nomeContato', 'chaveTipo', 'chaveValor', 'contaDestinatario', 'contaRemetente']
 
 class ExtratoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Extrato
-        fields = ['contaExtrato', 'valorExtrato', 'tipoExtrato', 'dataExtrato']
+        fields = ['contaExtrato', 'valorExtrato', 'dataExtrato', 'todasOperacoes']
 
 class TransacaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transacao
         fields = ['valorTransacao', 'dataTransacao','destinatario','remetente']
-        def create(self, validated_data):
-            if self.validated_data['valorTransacao'] > 'saldoConta':
-                return Response ({
-                    'erro' : 'no puedes transferir'
-                })
-            return super().create(validated_data)
+        # def create(self, validated_data):
+        #     if self.validated_data['valorTransacao'] > 'saldoConta':
+        #         return Response ({
+        #             'erro' : 'no puedes transferir'
+        #         })
+        #         #destinatario - (validated_data['valorTransacao'])
+        #     return super().create(validated_data)
     
 class CartaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cartao
-        fields = ['agencia','numeroConta','tipoConta','cliente','saldoConta']
+        fields = ['numeroCartao','tipoCartao','contaCliente','validadeCartao', 'cvcCartao']
 
 class FaturaSerializer(serializers.ModelSerializer):
     class Meta:

@@ -2,31 +2,6 @@ from django.db import models
 from pictures.models import PictureField
 # Create your models here.
 
-class Emprestimo(models.Model):
-    EMPREST_AUTORIZADO = 'A'
-    EMPREST_NEGADO = 'N'
-
-    STATUS_EMPREST = [
-        (EMPREST_AUTORIZADO, 'Autorizado'),
-        (EMPREST_NEGADO, 'Negado'),
-    ]
-    statusEmprest = models.CharField(max_length=1, choices=STATUS_EMPREST, default=EMPREST_NEGADO)
-    dataEmprest = models.DateField() 
-    valorEmprest = models.DecimalField(max_digits=10, decimal_places=2)
-    qtdParcelas = models.PositiveSmallIntegerField()
-    jurosEmprest = models.DecimalField(max_digits=10, decimal_places=2)
-
-    def __str__(self):
-        return str(self.valorEmprest)
-
-class PgtoEmprestimo(models.Model):
-    valorPgto = models.DecimalField(max_digits=10, decimal_places=2)
-    dataPgto = models.DateField()
-    dataVenc = models.DateField()
-    emprestimo = models.ForeignKey(Emprestimo, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return str(self.emprestimo)
 
 class Usuario(models.Model):
     # autenticar
@@ -95,6 +70,33 @@ class Conta(models.Model):
 
     def __str__(self):
         return str(self.numeroConta)
+        
+class Emprestimo(models.Model):
+    EMPREST_AUTORIZADO = 'A'
+    EMPREST_NEGADO = 'N'
+
+    STATUS_EMPREST = [
+        (EMPREST_AUTORIZADO, 'Autorizado'),
+        (EMPREST_NEGADO, 'Negado'),
+    ]
+    statusEmprest = models.CharField(max_length=1, choices=STATUS_EMPREST, default=EMPREST_NEGADO)
+    dataEmprest = models.DateField() 
+    valorEmprest = models.DecimalField(max_digits=10, decimal_places=2)
+    qtdParcelas = models.PositiveSmallIntegerField()
+    jurosEmprest = models.DecimalField(max_digits=10, decimal_places=2)
+    contaCliente = models.ForeignKey(Conta, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return str(self.valorEmprest)
+
+class PgtoEmprestimo(models.Model):
+    valorPgto = models.DecimalField(max_digits=10, decimal_places=2)
+    dataPgto = models.DateField()
+    dataVenc = models.DateField()
+    emprestimo = models.ForeignKey(Emprestimo, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.emprestimo)
 
 class Favorito(models.Model):
     CHAVE_CPF_CNPJ = 'C'
@@ -118,9 +120,8 @@ class Favorito(models.Model):
 class Extrato(models.Model):
     contaExtrato = models.ForeignKey(Conta, on_delete=models.CASCADE)
     valorExtrato = models.DecimalField(max_digits=10, decimal_places=2)
-    tipoExtrato = models.CharField(max_length=20)
     dataExtrato = models.DateTimeField(auto_now_add=True)
-
+    todasOperacoes = models.CharField(max_length=15)
     def __str__(self):
         return str(self.valorExtrato)
 
