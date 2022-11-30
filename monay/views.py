@@ -21,15 +21,6 @@ class ClienteViewSet(viewsets.ModelViewSet):
     serializer_class = ClienteSerializer
     # o tratamento de idade é feito no front
 
-    # def update(self, request, pk=id):
-    #     anoCliente = str(request.data['dataNascimento'])
-    #     anoCliente = anoCliente[0:4]
-    #     if int(datetime.now().year) - (int(anoCliente)) < 18:
-    #         return Response({
-    #             'erro':'o cliente deve possuir mais de 18 anos.'
-    #         })
-    #     return super().update(self, request, pk=id)
-
 class UsuarioViewSet(viewsets.ModelViewSet):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
@@ -78,8 +69,8 @@ class TransacaoViewSet(viewsets.ModelViewSet):
         contaRemetente = Conta.objects.get(pk = self.request.data['remetente'])
         contaDestinatario = Conta.objects.get(pk = self.request.data['destinatario'])
         
-        # extratoDestinatario = Extrato.objects.get(pk = self.request.data['destinatario'])
-        # extratoRemetente = Extrato.objects.get(pk = self.request.data['remetente'])
+        extratoDestinatario = Extrato.objects.get(pk = self.request.data['destinatario'])
+        extratoRemetente = Extrato.objects.get(pk = self.request.data['remetente'])
         
         valorTransacao = request.data['valorTransacao']
 
@@ -108,13 +99,12 @@ class TransacaoViewSet(viewsets.ModelViewSet):
         # serializerExtratoDestinatario = ExtratoSerializer(extratoDestinatario, data=atualizarExtratoDestinatario)
         # serializerExtratoRemetente = ExtratoSerializer(extratoDestinatario, data=atualizarExtratoRemetente)
         
+        #if serializerRemetente.is_valid() and serializerDestinatario.is_valid() and serializerExtratoDestinatario.is_valid() and serializerExtratoRemetente.is_valid():
         if serializerRemetente.is_valid() and serializerDestinatario.is_valid():
-        # if serializerRemetente.is_valid() and serializerDestinatario.is_valid() and serializerExtratoDestinatario.is_valid() and serializerExtratoRemetente.is_valid():
             serializerRemetente.save()
             serializerDestinatario.save()
             # serializerExtratoDestinatario.save()
             # serializerExtratoRemetente.save()
-            # saldoRemetente - valorTransacao
             return super().create(request, *args, **kwargs)
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)

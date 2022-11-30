@@ -4,6 +4,12 @@
    justify-items: center;
    height: 100vh;
 }
+.homeuser-operations{
+   display: flex;
+   flex-direction: column;
+   justify-items: center;
+   width: max-content;
+}
 .homeUser-svg{
    background-color: #1F83BD;
    /* width: 15vw; */
@@ -22,7 +28,8 @@
    margin-left: 2vw;
    font-size: 1vw;
 }  
-.teste{
+.transferencia form{
    display: flex;
    flex-direction: column;
+   width: 20vw;
 }
