@@ -19,12 +19,10 @@ from decimal import Decimal
 class ClienteViewSet(viewsets.ModelViewSet):
     queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer
-    # o tratamento de idade é feito no front
 
 class UsuarioViewSet(viewsets.ModelViewSet):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
-    # o tratamento de idade é feito no front
 
 class PgtoEmprestimoViewSet(viewsets.ModelViewSet):
     queryset = PgtoEmprestimo.objects.all()
@@ -51,7 +49,6 @@ class ContatoViewSet(viewsets.ModelViewSet):
 class ContaViewSet(viewsets.ModelViewSet):
     queryset = Conta.objects.all()
     serializer_class = ContaSerializer
-    # assim que criar conta, criar um extrato vazio pra ela
 
 class FavoritoViewSet(viewsets.ModelViewSet):
     queryset = Favorito.objects.all()
@@ -69,8 +66,8 @@ class TransacaoViewSet(viewsets.ModelViewSet):
         contaRemetente = Conta.objects.get(pk = self.request.data['remetente'])
         contaDestinatario = Conta.objects.get(pk = self.request.data['destinatario'])
         
-        extratoDestinatario = Extrato.objects.get(pk = self.request.data['destinatario'])
-        extratoRemetente = Extrato.objects.get(pk = self.request.data['remetente'])
+        # extratoDestinatario = Extrato.objects.get(pk = self.request.data['destinatario'])
+        # extratoRemetente = Extrato.objects.get(pk = self.request.data['remetente'])
         
         valorTransacao = request.data['valorTransacao']
 
