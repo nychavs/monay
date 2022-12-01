@@ -2,17 +2,17 @@ import React, {useEffect, useState} from 'react';
 import Sidebar from '../components/Sidebar';
 import { FaBars } from 'react-icons/fa'
 import '../styles/HomeUser.css'
-import Doubts from '../components/Doubts'
 
 function HomeUser(){
     const [sidebar, setSidebar] = useState(false)
     const showSidebar  = () => setSidebar(!sidebar)
     const [data, setData] = useState([])
     const [input, setInput] = useState({})
-    const date = new Date()
+    const idUsuario = JSON.parse(localStorage.getItem('idUsuario'))
+  //  const date = new Date()
 
     const apiGet = () =>{   
-        fetch("http://127.0.0.1:8000/monay/conta/?format=json")
+        fetch("http://127.0.0.1:8000/monay/conta/" + idUsuario + "/?format=json")
         .then((response) => 
         response.json())
         .then((json) => {
@@ -32,7 +32,7 @@ function HomeUser(){
             valorTransacao: input.valorTransacao,
             dataTransacao: '01/02/2004',
             destinatario: input.destinatario,
-            remetente: '44455'
+            remetente: '111111'
           }),
           headers: {
             "Content-type":"application/json; charset=UTF-8",
@@ -53,7 +53,8 @@ function HomeUser(){
       const handleSubmit=(event)=>{
         event.preventDefault()
         console.log('handle submit')
-        apiPost()
+        const id = 1
+        apiPost(id)
         console.log(input)
       }
     return (
@@ -67,9 +68,10 @@ function HomeUser(){
             <section id='conta'>
                 <div>
                     <h1>Minha conta</h1>
-                    <p>Meu saldo: {data.map((item) => (
+                    <p>meu saldo: </p>
+                    {/* <p>Meu saldo: {data.map((item) => (
                     <li>{item.saldoConta}</li>
-                ))}</p>
+                ))}</p> */}
                 </div>
             </section>
         <section id='transferencia'>

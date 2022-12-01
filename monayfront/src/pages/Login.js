@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const [input, setInput] = useState({})
   const [data, setData] = useState([])
+  let teste = 0
   let navigate = useNavigate()
 
   const apiGet = () =>{   
@@ -30,8 +31,11 @@ const Login = () => {
   const handleSubmit=(event)=>{
     event.preventDefault()
     if (validate()){
+    localStorage.setItem('idUsuario', teste)
+    console.log(teste + ' id localstorage')
       window.alert("Login efetuado com sucesso!")
       navigate('/homeuser')
+      // window.location.reload();
     }
     console.log(input)
   }
@@ -52,20 +56,23 @@ const toastOptions = {
   const validate = () =>{
     const {cpfUsuario, senhaUsuario} = input
     // data.forEach(item => {
+    var logado = false
     for (let i=0; i < data.length; i++){  
     console.log(data[i]) 
     let item = data[i] 
       if (item.cpfUsuario !== cpfUsuario){
-        if (item = data.length) {
+        if (item === data.length) {
           toast.error("CPF não encontrado!", toastOptions)
         }
-        return false;
+        //return false;
       } else if (item.senhaUsuario !== senhaUsuario){
         toast.error("Senha incorreta!", toastOptions)
-        return false;
+        //return false;
       }
-      return true
+      teste = item.id
+      logado = true
     };
+      return logado
     }
   return (
     <div className='all-page'>
