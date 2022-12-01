@@ -20,6 +20,7 @@ function Card() {
   const [input, setInput] = useState({})
 
   const apiPost = async () =>{   
+    console.log("apipost1")
     await fetch("http://127.0.0.1:8000/monay/usuario/?format=json",{
       method: "POST",
       body: JSON.stringify({
@@ -37,17 +38,17 @@ function Card() {
       apiPost2(json.id)
       window.alert(
         "Cadastro efetuado com sucesso! Acesse a página de login para continuar")
-
     })
 }
 const apiPost2 = async (idUsuario) =>{   
+  console.log("apipost2")
   await fetch("http://127.0.0.1:8000/monay/cliente/?format=json",{
     method: "POST",
     body: JSON.stringify({
       nomeCliente: input.nomeCliente,
       email:input.senhaUsuario,
       dataNascimento: input.dataNascimento,
-      usuario: idUsuario,
+      usuario: idUsuario
     }),
     headers: {
       "Content-type":"application/json; charset=UTF-8",
@@ -55,9 +56,31 @@ const apiPost2 = async (idUsuario) =>{
   })
   .then((response) => response.json())
   .then((json) => {console.log(json)
-    console.log('tudo postado')
+    apiPost3(idUsuario)
   })
 }
+  const apiPost3 = async (idUsuario) => {
+    const agencia = Math.random() * (5000 - 1000) + 5000
+    const numeroConta = Math.random() * (500 - 100) + 500
+    console.log("apipost3")
+    await fetch("http://127.0.0.1:8000/monay/conta/?format=json",{
+      method: "POST",
+      body: JSON.stringify({
+        agencia: agencia,
+        numeroConta: numeroConta,
+        tipoConta: 'C',
+        cliente: idUsuario,
+        saldoConta: 0
+      }),
+      headers: {
+        "Content-type":"application/json; charset=UTF-8"
+      },
+    })
+    .then((response)=>response.json())
+    .then((json)=>{console.log(json)
+    console.log('tudo postado')
+  })
+  }
     const handleChange = (event) =>{
       event.persist()
       setInput((input)=>({
@@ -99,44 +122,41 @@ const apiPost2 = async (idUsuario) =>{
     }, [])
 
     const handleValidation = () =>{
-      const {nomeCliente, email, emailConf, senhaUsuario, confSenha, cpfUsuario} = input;
+        const {nomeCliente, email, emailConf, senhaUsuario, confSenha, cpfUsuario} = input;
       if (nomeCliente.length < 4){
           toast.error("Por favor, insira seu nome completo.", toastOptions);
           return false;
-      }else if (cpfUsuario < 11){
+      }else if (cpfUsuario.length !== 11){
           toast.error("Por favor, verifique seu CPF", toastOptions)
           return false;
-      }else if (cpfUsuario.length == 11){
-        for (let i=0; i < data.length; i++){
-          let item = data[i]
-          if (cpfUsuario === item.cpfUsuario){
-            toast.error("CPF Ja cadastrado em nosso sistema! Clique em 'Login' no canto superior", toastOptions)
-            i = data.length
-          }
-        }
-        return false;
+      // }else if (cpfUsuario.length == 11){
+      //   for (let i=0; i < data.length; i++){
+      //     if (cpfUsuario === i.cpfUsuario){
+      //       console.log('entra no if do for')
+      //       toast.error("CPF Ja cadastrado em nosso sistema! Clique em 'Login' no canto superior", toastOptions)
+      //       i = data.length
+      //     }
+      //   }
+      //   return false;
       }else if (email !== emailConf){
-        console.log(email)
-        console.log(emailConf)
         toast.error("Os emails não conferem!", toastOptions)
         return false;
-      }
-      else if (email === emailConf){
-        for (let i=0; i <data.length; i++){
-          let item = data[i]
-          if (email === item.email){
-            toast.error("Email já cadastrado em nosso sistema! Clique em 'Login' no canto superior", toastOptions)
-            i = data.length
-          }
-        }
-        return false;
-      }
-      else if (senhaUsuario < 6){
+      // }else if (email === emailConf){
+      //   for (let i=0; i <data.length; i++){
+      //     let item = data[i]
+      //     if (email === item.email){
+      //       toast.error("Email já cadastrado em nosso sistema! Clique em 'Login' no canto superior", toastOptions)
+      //       i = data.length
+      //     }
+      //   }
+      //   return false;
+      }else if (senhaUsuario.length < 6){
         toast.error("Sua senha deve possuir pelo menos 6 caracteres", toastOptions)
       }else if (senhaUsuario !== confSenha) {
         toast.error("As senhas não conferem!", toastOptions)
         return false;
       }
+      console.log('true direto')
       return true;
     }
 
@@ -179,11 +199,6 @@ return (
             name='emailConf' 
             placeholder='Confirmar Email'
             onChange={handleChange}/><br/>
-            {/* <input 
-            type='text' 
-            id='genero' 
-            name='genero' 
-            placeholder='Genero'/><br/> */}
             <input
             type='password' 
             id='senhaUsuario' 
