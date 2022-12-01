@@ -69,9 +69,7 @@ function HomeUser(){
                 <div>
                     <h1>Minha conta</h1>
                     <p>meu saldo: </p>
-                    {/* <p>Meu saldo: {data.map((item) => (
-                    <li>{item.saldoConta}</li>
-                ))}</p> */}
+                    <p>Meu saldo:<li>{saldoConta}</li></p>
                 </div>
             </section>
         <section id='transferencia'>
