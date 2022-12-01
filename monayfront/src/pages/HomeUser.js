@@ -11,6 +11,7 @@ function HomeUser(){
     const idUsuario = JSON.parse(localStorage.getItem('idUsuario'))
   //  const date = new Date()
 
+  // FAZER O BGL DE TRANSFERIR COM CONTA E NAO ID
     const apiGet = () =>{   
         fetch("http://127.0.0.1:8000/monay/conta/" + idUsuario + "/?format=json")
         .then((response) => 
@@ -20,19 +21,18 @@ function HomeUser(){
         setData(json)
         })
       }
-      
       useEffect(()=>{
         apiGet();
       }, [])
-
+      
       const apiPost = async () =>{   
         await fetch("http://127.0.0.1:8000/monay/transacao/?format=json",{
           method: "POST",
           body: JSON.stringify({
             valorTransacao: input.valorTransacao,
-            dataTransacao: '01/02/2004',
+            dataTransacao: '2004-02-15',
             destinatario: input.destinatario,
-            remetente: '111111'
+            remetente: '2'
           }),
           headers: {
             "Content-type":"application/json; charset=UTF-8",
@@ -43,6 +43,7 @@ function HomeUser(){
           console.log('tudo postado')
         })
       }
+     
       const handleChange = (event) =>{
         event.persist()
         setInput((input)=>({
@@ -52,10 +53,17 @@ function HomeUser(){
       }
       const handleSubmit=(event)=>{
         event.preventDefault()
+        validate()
         console.log('handle submit')
         const id = 1
         apiPost(id)
         console.log(input)
+      }
+      const validate = () =>{
+        const {agencia, numeroConta, tipoConta, cliente, saldoConta} = data
+        const {destinatario} = input
+        data.map((item)=>(
+        alert(item.id), alert(item.numeroConta)))
       }
     return (
         <>
@@ -67,9 +75,8 @@ function HomeUser(){
         <div className='homeuser-operations'>
             <section id='conta'>
                 <div>
-                    <h1>Minha conta</h1>
-                    <p>meu saldo: </p>
-                    <p>Meu saldo:<li>{saldoConta}</li></p>
+                    <p>Como é bom te ter aqui!</p>
+                    <p>Seu saldo:<li>{data.saldoConta}</li></p>
                 </div>
             </section>
         <section id='transferencia'>
@@ -97,11 +104,6 @@ function HomeUser(){
                 Concluido
                 </button>
             </form>
-            </div>
-        </section>
-        <section id='pagamentos'>
-            <div className='pagamentos'>
-            <h1>Pagamentos</h1>
             </div>
         </section>
         </div>

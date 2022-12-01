@@ -16,7 +16,6 @@ function Card() {
   let year18 = year - 18
   let currentDate = `${year18}-${month}-${day}`
 
-
   const [input, setInput] = useState({})
 
   const apiPost = async () =>{   

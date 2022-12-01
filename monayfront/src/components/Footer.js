@@ -1,7 +1,6 @@
 import React from 'react'
 import '../styles/Footer.css'
 import { useState } from 'react';   
-import {HashLink as Link} from "react-router-hash-link";
 
 function Footer() {
   const[fix, setFix] = useState(false);
