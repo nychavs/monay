@@ -6,6 +6,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
+
 const Login = () => {
   const [input, setInput] = useState({})
   const [data, setData] = useState([])
@@ -54,26 +55,23 @@ const toastOptions = {
 
 
   const validate = () =>{
-    const {cpfUsuario, senhaUsuario} = input
-    // data.forEach(item => {
     var logado = false
-    for (let i=0; i < data.length; i++){  
-    console.log(data[i]) 
-    let item = data[i] 
-      if (item.cpfUsuario !== cpfUsuario){
-        if (item === data.length) {
+    for (let i=0; i < data.length; i++){
+      if (input.cpfUsuario !== (data[i].cpfUsuario)){
+        if (i === (data.length - 1)){
           toast.error("CPF não encontrado!", toastOptions)
         }
-        //return false;
-      } else if (item.senhaUsuario !== senhaUsuario){
+      }else if (input.senhaUsuario !== (data[i].senhaUsuario)){
         toast.error("Senha incorreta!", toastOptions)
-        //return false;
+      }else if (input.cpfUsuario === (data[i].cpfUsuario)){
+        if (input.senhaUsuario === (data[i].senhaUsuario)){
+          teste = data[i].id
+          logado = true
+        }
       }
-      teste = item.id
-      logado = true
-    };
-      return logado
-    }
+    }return logado;
+  }
+    
   return (
     <div className='all-page'>
       <div className='container'>

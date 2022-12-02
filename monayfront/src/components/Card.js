@@ -122,28 +122,27 @@ const apiPost2 = async (idUsuario) =>{
 
     const handleValidation = () =>{
         const {nomeCliente, email, emailConf, senhaUsuario, confSenha, cpfUsuario} = input;
-      if (nomeCliente.length < 4){
+      if (nomeCliente.length <= 4){
           toast.error("Por favor, insira seu nome completo.", toastOptions);
           return false;
       }else if (cpfUsuario.length !== 11){
           toast.error("Por favor, verifique seu CPF", toastOptions)
           return false;
-      // }else if (cpfUsuario.length == 11){
-      //   for (let i=0; i < data.length; i++){
-      //     if (cpfUsuario === i.cpfUsuario){
-      //       console.log('entra no if do for')
-      //       toast.error("CPF Ja cadastrado em nosso sistema! Clique em 'Login' no canto superior", toastOptions)
-      //       i = data.length
-      //     }
-      //   }
-      //   return false;
+      }else if (cpfUsuario.length === 11){
+        for (let i=0; i < data.length; i++){
+          if (input.cpfUsuario === (data[i].cpfUsuario)){
+            console.log('entra no if do for')
+            toast.error("CPF Ja cadastrado em nosso sistema! Clique em 'Login' no canto superior", toastOptions)
+            i = data.length
+          }
+        }
+        return false;
       }else if (email !== emailConf){
         toast.error("Os emails não conferem!", toastOptions)
         return false;
       // }else if (email === emailConf){
       //   for (let i=0; i <data.length; i++){
-      //     let item = data[i]
-      //     if (email === item.email){
+      //    if (input.email !== (data[i].email)){
       //       toast.error("Email já cadastrado em nosso sistema! Clique em 'Login' no canto superior", toastOptions)
       //       i = data.length
       //     }
@@ -155,7 +154,6 @@ const apiPost2 = async (idUsuario) =>{
         toast.error("As senhas não conferem!", toastOptions)
         return false;
       }
-      console.log('true direto')
       return true;
     }
 
